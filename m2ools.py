@@ -56,9 +56,8 @@ def get_jitter(val, jitterfactor):
     base_value = abs(val)
     mean = 0
     std = base_value * jitterfactor / JITTER_SIGMA_COUNT
-    # jitter_amount = random.gauss(mean, std)
 
-    # repeat sampling if outside of +/- 4 sigma (JITTER_SIGMA_COUNT = 4)
+    # repeat sampling until `jitter_amount` falls inside of 0 +/- 4 sigma
     while abs(jitter_amount := random.gauss(mean, std)) >= (std * JITTER_SIGMA_COUNT):
         pass
 
