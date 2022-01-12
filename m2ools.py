@@ -229,6 +229,7 @@ def retry(_func=None, *, validator=lambda x: True, maxtries=1, delay=0, jitterfa
 CACHE_DIR = 'cache'
 
 
+# helper function
 def get_cache_inventory(cachedir, func_name):
     cache_inventory = defaultdict(list)
     cachefilename_re = re.compile(func_name + r'_([0-9a-f]{40})_(\d{4}-\d{2}-\d{2}_\d{6})\.(?:csv|pkl)$')
@@ -245,6 +246,7 @@ def get_cache_inventory(cachedir, func_name):
     return cache_inventory
 
 
+# helper function
 def get_func_sig_hashed(name, args, kwargs):
     argslist = [repr(arg) for arg in args]
     kwargslist = [f'{k}={v!r}' for k, v in kwargs.items()]
@@ -254,6 +256,7 @@ def get_func_sig_hashed(name, args, kwargs):
     return func_sig_hashed
 
 
+# helper function
 def to_cache(result, cachedir, func_name, func_sig_hashed):
     os.makedirs(cachedir, exist_ok=True)
     dt = datetime.now()
@@ -270,6 +273,7 @@ def to_cache(result, cachedir, func_name, func_sig_hashed):
     return dt, cachefilename
 
 
+# helper function
 def from_cache(cachefilename, func_name):
     print(f'fetching cached result for {func_name}: {cachefilename}')
     ext = cachefilename[-4:]
@@ -281,6 +285,7 @@ def from_cache(cachefilename, func_name):
     return result
 
 
+# helper function
 def get_dt(reachback):
     datetime_re = r'(\d{1,4})(?:\D(\d{1,2}))?(?:\D(\d{1,2}))?(?:\D(\d{1,2}))?(?:\D(\d{1,2}))?(?:\D(\d{1,2}))?$'
     customtimedelta_re = r'(\d+) *(year|month|week|day|hour|minute|second)s?'
@@ -301,6 +306,11 @@ def get_dt(reachback):
 
 
 def cache(_func=None, *, reachback=datetime.min.strftime('%Y-%m-%d'), hoard=False, cachedir=CACHE_DIR):
+    """Main cache functionalitiy
+
+    Documentation needed.
+    """
+
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
