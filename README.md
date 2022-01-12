@@ -26,7 +26,10 @@ TBD: Would benefit from better documenting this part of code.
 
 ## Usage
 
-Best illustrated in 'example_*' files. To preemptively avoid conflicts it is recommended to `import m2ools as m2` and then use `@m2.jitter`, `@m2.retry(reachback='1 hour')`and so forth.
+Best illustrated in example files. To preemptively avoid conflicts it is recommended to `import m2ools as m2` and then use `@m2.jitter`, `@m2.retry(reachback='1 hour')`and so forth.
+
+## Requirements
+Pandas are used only to enable caching of pandas.DataFrame to a csv format. Numpy and matplotlib are used only in example files.
 
 ## Authors
 
