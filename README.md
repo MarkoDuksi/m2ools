@@ -12,7 +12,7 @@ Main use of these tools is to aid in common web scraping tasks.
 
 Most commonly used with jitter factors set to 1 when used for timing delays to assure the jittered value is non-negative. For other purposes one can choose to jitter more or less aggressively:
 
-![Effect of jitterfactor on jitter spread](https://github.com/MarkoDuksi/PhotoMathEx/blob/main/images/jitter.png)
+![Effect of jitterfactor on jitter spread](https://github.com/MarkoDuksi/m2ools/blob/main/images/jitter.png)
 
 Well documented in code.
 
